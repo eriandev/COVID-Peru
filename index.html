@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>COVID en Perú</title>
+    <meta name="description" content="Casos confirmados de COVID-19 en Perú">
+    <link rel='icon' type='image/png' href='images/covid.png'>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="global.css">
+
+    <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+</head>
+<body class="bg-gray-800 h-full w-full m-0">
+
+    <div class="container duration-500 ease-in-out">
+        <header class="bg-black mt-6 xl:mt-2 rounded-lg hidden md:flex">
+            <div class="w-full p-4 text-5xl font-bold text-center text-white">Coronavirus en Perú</div>
+        </header>
+    
+        <div class="flex flex-wrap justify-center md:py-8">
+    
+            <div class="flex flex-wrap md:justify-center w-full md:w-1/2 my-4 sm:my-6 md:my-0">
+                
+                <div class="bg-red-700 w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-r-none sm:rounded-l-lg md:rounded-b-none md:rounded-t-lg">
+                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
+                    <div class="text-4xl font-bold text-white">15</div>
+                </div>
+        
+                <div class="bg-white w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-none">
+                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
+                    <div class="text-4xl font-bold text-red-700">0</div>
+                </div>
+        
+                <div class="bg-red-700 w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-l-none sm:rounded-r-lg md:rounded-t-none md:rounded-b-lg">
+                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/cured.png" alt="Personas curadas">
+                    <div class="text-4xl font-bold text-white">0</div>
+                </div>
+    
+            </div>
+    
+            <div class="w-full md:w-1/2">
+                <div id="map" class="w-full md:w-11/12 h-70-screen sm:h-50-screen rounded-lg"></div>
+            </div>
+    
+        </div>
+    
+        <div class="bg-black flex flex-wrap my-6 md:my-0 rounded-lg">
+            <div class="w-full p-8 text-center">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/world.png" alt="Ícono del mundo">
+            </div>
+    
+            <div class="w-full sm:w-2/6 p-4 text-center">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
+                <div class="text-4xl font-extrabold text-center text-white">125 862</div>
+            </div>
+    
+            <div class="w-full sm:w-2/6 p-4 text-center">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
+                <div class="text-4xl font-extrabold text-center text-white">4 615</div>
+            </div>
+    
+            <div class="w-full sm:w-2/6 pt-2 pb-4 text-center">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/cured.png" alt="Personas curadas">
+                <div class="text-4xl font-extrabold text-center text-white">67 003</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        const IMG = 'images/covid.png'
+
+        let map = L.map('map').setView([-9,-75.0282], 5)
+
+        const circleMarkerOpts = {
+            radius: 5,
+            fillColor: '#013825',
+            color: '#013825',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.6
+        }
+
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        L.circleMarker([-12.022867,-77.110848], circleMarkerOpts).addTo(map).bindPopup('10 casos confirmados en Lima')
+        L.circleMarker([-9.926930,-76.242220], circleMarkerOpts).addTo(map).bindPopup('2 casos confirmados en Huánuco')
+        L.circleMarker([-13.4179319,-76.1396996], circleMarkerOpts).addTo(map).bindPopup('2 casos confirmados en Chincha')
+        L.circleMarker([-16.342461,-71.569104], circleMarkerOpts).addTo(map).bindPopup('1 caso confirmado en Arequipa')
+
+    </script>
+</body>
+</html>
