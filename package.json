@@ -1,0 +1,29 @@
+{
+  "name": "COVID-Peru",
+  "version": "1.0.0",
+  "description": "Casos confirmados de COVID-19 en Perú",
+  "main": "index.html",
+  "scripts": {
+    "dev": "postcss src/tailwind.css -o public/global.css -w",
+    "build": "cross-env NODE_ENV=production postcss src/tailwind.css -o public/global.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erianvc/COVID-Peru.git"
+  },
+  "keywords": [],
+  "author": "erianvc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erianvc/COVID-Peru/issues"
+  },
+  "homepage": "https://github.com/erianvc/COVID-Peru#readme",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
+  }
+}
