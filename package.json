@@ -4,8 +4,8 @@
   "description": "Casos confirmados de COVID-19 en Perú",
   "main": "index.html",
   "scripts": {
-    "dev": "postcss src/tailwind.css -o public/global.css -w",
-    "build": "cross-env NODE_ENV=production postcss src/tailwind.css -o public/global.css"
+    "dev": "postcss src/tailwind.css -o public/css/global.css -w",
+    "build": "cross-env NODE_ENV=production postcss src/tailwind.css -o public/css/global.css"
   },
   "repository": {
     "type": "git",
