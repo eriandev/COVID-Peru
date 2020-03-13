@@ -1,4 +1,4 @@
-const API = 'https://erianvc.github.io/api/COVID-Peru/'
+const API = 'https://erianvc.github.io/API/COVID-Peru/data/'
 
 const worldInfected = document.getElementById('world-infected')
 const worldRecovered = document.getElementById('world-recovered')
