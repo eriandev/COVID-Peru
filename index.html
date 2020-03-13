@@ -14,9 +14,11 @@
     <script defer src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script defer src="main.js"></script>
 </head>
+
 <body class="bg-gray-800 h-full w-full m-0">
 
     <div class="container mt-6 duration-500 ease-in-out">
+
         <section class="bg-black xl:mt-2 rounded-lg hidden md:flex">
             <h1 class="w-full p-4 m-10 text-5xl font-bold text-center text-white">Coronavirus en Perú</h1>
         </section>
@@ -28,16 +30,19 @@
                 <div class="bg-red-700 w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-r-none sm:rounded-l-lg md:rounded-b-none md:rounded-t-lg">
                     <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
                     <span id="local-infected" class="text-4xl font-bold text-white">-</span>
+                    <span class="block text-md font-bold text-white">Casos confirmados</span>
                 </div>
         
                 <div class="bg-white w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-none">
                     <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.png" alt="Personas curadas">
                     <span id="local-recovered" class="text-4xl font-bold text-red-700">-</span>
+                    <span class="block text-md font-bold text-red-700">Recuperados</span>
                 </div>
         
                 <div class="bg-red-700 w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-l-none sm:rounded-r-lg md:rounded-t-none md:rounded-b-lg">
                     <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
                     <span id="local-deaths" class="text-4xl font-bold text-white">-</span>
+                    <span class="block text-md font-bold text-white">Fallecidos</span>
                 </div>
     
             </div>
@@ -50,24 +55,28 @@
     
         <div class="bg-black flex flex-wrap py-4 my-6 md:my-0 md:mt-2 md:mb-6 rounded-lg">
             <div class="w-full p-8 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/world.png" alt="Ícono del mundo">
+                <img class="w-16 md:w-24 py-4 mx-auto" src="images/world.webp" alt="Ícono del mundo">
             </div>
     
             <div class="w-full sm:w-2/6 p-4 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.webp" alt="Personas infectadas">
                 <span id="world-infected" class="text-4xl font-extrabold text-center text-white">-</span>
+                <span class="block text-md font-bold text-white">Infectados</span>
             </div>
 
             <div class="w-full sm:w-2/6 pt-2 pb-4 sm:p-4 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.png" alt="Personas curadas">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.webp" alt="Personas curadas">
                 <span id="world-recovered" class="text-4xl font-extrabold text-center text-white">-</span>
+                <span class="block text-md font-bold text-white">Recuperados</span>
             </div>
     
             <div class="w-full sm:w-2/6 p-4 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
+                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.webp" alt="Personas muertas">
                 <span id="world-deaths" class="text-4xl font-extrabold text-center text-white">-</span>
+                <span class="block text-md font-bold text-white">Fallecidos</span>
             </div>
         </div>
     </div>
+
 </body>
 </html>
