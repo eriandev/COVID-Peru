@@ -3,9 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name='viewport' content='width=device-width,initial-scale=1'>
-    <title>COVID en Perú</title>
+    <title>Coronavirus en Perú</title>
     <meta name="description" content="Casos confirmados de COVID-19 en Perú">
-    <link rel='icon' type='image/png' href='images/covid.png'>
+    <link rel='icon' type='image/png' href='images/infected.png'>
+    <link rel='manifest' href='./manifest.json'>
+
+    <script>
+        if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js')
+    </script>
 
     <link rel="preconnect" href="https://tiles.stadiamaps.com">
     <link rel="stylesheet" href="css/leaflet.css">
@@ -15,7 +20,7 @@
     <script defer src="main.js"></script>
 </head>
 
-<body class="bg-gray-800 h-full w-full m-0">
+<body class="h-full w-full m-0" style="background-color: #282B30;">
 
     <div class="container mt-6 duration-500 ease-in-out">
 
@@ -28,19 +33,28 @@
             <div class="flex flex-wrap md:justify-center w-full md:w-1/2 my-4 sm:my-6 md:my-0">
                 
                 <div class="bg-red-700 w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-r-none sm:rounded-l-lg md:rounded-b-none md:rounded-t-lg">
-                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
+                    <picture>
+                        <source srcset="images/infected.webp" type="image/webp">
+                        <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
+                    </picture>
                     <span id="local-infected" class="text-4xl font-bold text-white">-</span>
                     <span class="block text-md font-bold text-white">Casos confirmados</span>
                 </div>
         
                 <div class="bg-white w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-none">
-                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.png" alt="Personas curadas">
+                    <picture>
+                        <source srcset="images/recovered.webp" type="image/webp">
+                        <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.png" alt="Personas curadas">
+                    </picture>
                     <span id="local-recovered" class="text-4xl font-bold text-red-700">-</span>
                     <span class="block text-md font-bold text-red-700">Recuperados</span>
                 </div>
         
                 <div class="bg-red-700 w-full sm:w-2/6 md:w-11/12 py-2 my-4 sm:my-0 text-center rounded-lg sm:rounded-l-none sm:rounded-r-lg md:rounded-t-none md:rounded-b-lg">
-                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
+                    <picture>
+                        <source srcset="images/deaths.webp" type="image/webp">
+                        <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
+                    </picture>
                     <span id="local-deaths" class="text-4xl font-bold text-white">-</span>
                     <span class="block text-md font-bold text-white">Fallecidos</span>
                 </div>
@@ -55,23 +69,35 @@
     
         <div class="bg-black flex flex-wrap py-4 my-6 md:my-0 md:mt-2 md:mb-6 rounded-lg">
             <div class="w-full p-8 text-center">
-                <img class="w-16 md:w-24 py-4 mx-auto" src="images/world.webp" alt="Ícono del mundo">
+                <picture>
+                    <source srcset="images/world.webp" type="image/webp">
+                    <img class="w-16 md:w-24 py-4 mx-auto" src="images/world.png" alt="Estadísticas a nivel mundial">
+                </picture>
             </div>
     
             <div class="w-full sm:w-2/6 p-4 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.webp" alt="Personas infectadas">
+                <picture>
+                    <source srcset="images/infected.webp" type="image/webp">
+                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/infected.png" alt="Personas infectadas">
+                </picture>
                 <span id="world-infected" class="text-4xl font-extrabold text-center text-white">-</span>
                 <span class="block text-md font-bold text-white">Infectados</span>
             </div>
 
             <div class="w-full sm:w-2/6 pt-2 pb-4 sm:p-4 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.webp" alt="Personas curadas">
+                <picture>
+                    <source srcset="images/recovered.webp" type="image/webp">
+                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/recovered.png" alt="Personas curadas">
+                </picture>
                 <span id="world-recovered" class="text-4xl font-extrabold text-center text-white">-</span>
                 <span class="block text-md font-bold text-white">Recuperados</span>
             </div>
     
             <div class="w-full sm:w-2/6 p-4 text-center">
-                <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.webp" alt="Personas muertas">
+                <picture>
+                    <source srcset="images/deaths.webp" type="image/webp">
+                    <img class="h-12 w-12 md:h-16 md:w-16 mx-auto" src="images/deaths.png" alt="Personas muertas">
+                </picture>
                 <span id="world-deaths" class="text-4xl font-extrabold text-center text-white">-</span>
                 <span class="block text-md font-bold text-white">Fallecidos</span>
             </div>
