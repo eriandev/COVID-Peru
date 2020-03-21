@@ -2,19 +2,33 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Coronavirus en Perú</title>
-    <meta name="description" content="Casos confirmados de COVID-19 en Perú">
-    <link rel='icon' type='image/png' href='images/infected.png'>
-    <link rel='manifest' href='./manifest.json'>
+    <meta name="description" content="Casos confirmados de COVID-19 en Perú" />
+    <link rel="icon" type="image/png" href="images/infected.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Coronavirus en Perú" />
+    <meta name="twitter:description" content="Casos confirmados de COVID-19 en Perú" />
+    <meta name="twitter:creator" content="@erianvc" />
+    <meta name="twitter:image:src" content="https://erianvc.github.io/API/COVID-Peru/twitter_card.png" />
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Coronavirus en Perú" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://erianvc.github.io/COVID-Peru/" />
+    <meta property="og:image" content="https://erianvc.github.io/API/COVID-Peru/open_graph.png" />
+    <meta property="og:description" content="Casos confirmados de COVID-19 en Perú" />
 
     <script>
         if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js')
     </script>
 
-    <link rel="preconnect" href="https://tiles.stadiamaps.com">
-    <link rel="stylesheet" href="css/leaflet.css">
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="preconnect" href="https://tiles.stadiamaps.com" />
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" href="css/global.css" />
 
     <script defer src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script defer src="main.js"></script>
