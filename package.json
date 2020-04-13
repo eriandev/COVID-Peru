@@ -1,6 +1,6 @@
 {
   "name": "COVID-Peru",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Casos confirmados de COVID-19 en Perú",
   "main": "index.html",
   "scripts": {

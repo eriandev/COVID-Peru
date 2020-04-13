@@ -9,7 +9,7 @@ const localRecovered = document.getElementById('local-recovered')
 const localDeaths = document.getElementById('local-deaths')
 
 const circleMarkerOpts = {
-    radius: 6,
+    radius: 7,
     fillColor: '#013825',
     color: '#013825',
     weight: 2,
@@ -54,7 +54,7 @@ async function updateLocalCases(){
     const data = await getData(`${API}localCases.json`)
     updateMapMarkers(data)
 
-    localInfected.textContent = data.totalCases
+    localInfected.textContent = data.cases
     localRecovered.textContent = data.recovered
     localDeaths.textContent = data.deaths
 }
@@ -62,6 +62,8 @@ async function updateLocalCases(){
 function updateMapMarkers(data){
 
     data.details.forEach( the => {
-        L.circleMarker([the.lat, the.lng], circleMarkerOpts).addTo(map).bindPopup(`${the.cases} ${the.cases > 1 ? 'casos confirmados' : 'caso confirmado'} en ${the.city}`)
+        L.circleMarker([the.lat, the.lng], circleMarkerOpts)
+            .addTo(map)
+            .bindPopup(`<div style='text-align: center; font-weight: bold;'>${the.city}</div> ${the.cases} ${the.cases > 1 ? 'casos confirmados' : 'caso confirmado'}`)
     })
 }
