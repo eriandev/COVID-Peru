@@ -1,4 +1,4 @@
-const API = 'https://erianvc.github.io/API/COVID-Peru/data/'
+const API = 'https://erianvc.github.io/api/COVID-Peru/'
 
 const worldInfected = document.getElementById('world-infected')
 const worldRecovered = document.getElementById('world-recovered')
@@ -43,7 +43,7 @@ async function getData(URL){
 
 async function updateWorldCases(){
 
-    const data = await getData(`${API}worldCases.json`)
+    const data = await getData(`${API}world-cases/`)
     worldInfected.textContent = new Intl.NumberFormat().format(data.cases).replace(/\./g,' ')
     worldRecovered.textContent = new Intl.NumberFormat().format(data.recovered).replace(/\./g,' ')
     worldDeaths.textContent = new Intl.NumberFormat().format(data.deaths).replace(/\./g,' ')
@@ -51,7 +51,7 @@ async function updateWorldCases(){
 
 async function updateLocalCases(){
 
-    const data = await getData(`${API}localCases.json`)
+    const data = await getData(`${API}local-cases/`)
     updateMapMarkers(data)
 
     localInfected.textContent = data.cases
